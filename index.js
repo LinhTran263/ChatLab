@@ -1,7 +1,7 @@
 let express = require("express");
 let app = express();
 app.use(express.json());
-
+let port = process.env.PORT || 3000;
 
 let Datastore = require("nedb");
 let db = new Datastore({ filename: 'chats.db', timestampData: true });
@@ -43,6 +43,6 @@ app.get("/messages", (req,res) => {
 //   })
   
 
-app.listen(PORT, ()=>{
-    console.log("server is runing on port " + PORT)
+app.listen(port, ()=>{
+    console.log("server is runing on port " + port)
 })
